@@ -3,138 +3,165 @@ import React, { useState } from "react";
 function Form() {
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    console.log("Name :" + name);
-    console.log("Email :" + email);
-    console.log("USN :" + usn);
-    console.log("Address :" + address);
-    console.log("Branch :" + branch);
-    console.log("Sem :" + sem);
+    const data = {
+      name: name,
+      usn: usn,
+      email: email,
+      phone: phone,
+      sem: sem,
+      branch: branch,
+    };
+    console.log(data);
   };
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [usn, setUsn] = useState("");
-  const [address, setAddress] = useState("");
+  const [phone, setPhone] = useState("");
   const [branch, setBranch] = useState("");
   const [sem, setSem] = useState("");
   return (
-    <>
-      <div>
-        <form
-          action=""
-          style={{
-            border: "2px solid black",
-            padding: "40px",
-            borderRadius: "50px",
-            backgroundColor: "yellowgreen",
-          }}
-        >
-          <div className="form-floating mb-3">
-            <input
-              type="email"
-              className="form-control"
-              id="floatingInput"
-              placeholder="name@example.com"
-              pattern="^[a-zA-Z]+(?: [a-zA-Z]+)*$"
-              required
-              value={name}
-              onChange={(e) => {
-                setName(e.target.value);
-              }}
-            />
-            <label htmlFor="floatingInput">Name</label>
-          </div>
-          <div className="form-floating mb-3">
-            <input
-              type="email"
-              className="form-control"
-              id="floatingInput"
-              placeholder="name@example.com"
-              value={email}
-              onChange={(e) => {
-                setEmail(e.target.value);
-              }}
-            />
-            <label htmlFor="floatingInput">Email address</label>
-          </div>
-          <div className="form-floating mb-3">
-            <input
-              type="text"
-              className="form-control"
-              id="floatingInput"
-              placeholder="name@example.com"
-              value={usn}
-              onChange={(e) => {
-                setUsn(e.target.value);
-              }}
-            />
-            <label htmlFor="floatingInput">USN</label>
-          </div>
-          <div className="form-floating">
-            <textarea
-              className="form-control"
-              placeholder="Leave a comment here"
-              id="floatingTextarea"
-              value={address}
-              onChange={(e) => {
-                setAddress(e.target.value);
-              }}
-            ></textarea>
-            <label htmlFor="floatingTextarea">Address</label>
-          </div>
-          <br />
-          <div className="form-floating">
-            <select
-              className="form-select"
-              id="floatingSelect"
-              aria-label="Floating label select example"
-              value={branch}
-              onChange={(e) => {
-                setBranch(e.target.value);
-              }}
-            >
-              <option></option>
-              <option value="1">CSE</option>
-              <option value="2">AIML</option>
-              <option value="3">CSD</option>
-            </select>
-            <label htmlFor="floatingSelect">Select branch</label>
-          </div>
-          <br />
-          <div className="form-floating">
-            <select
-              className="form-select"
-              id="floatingSelect"
-              aria-label="Floating label select example"
-              value={sem}
-              onChange={(e) => {
-                setSem(e.target.value);
-              }}
-            >
-              <option></option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-            </select>
-            <label htmlFor="floatingSelect">Select sem</label>
-          </div>
-          <br />
-          <div class="col-auto d-grid">
-            <button
-              type="submit"
-              class="btn btn-success mb-3"
-              onSubmit={handleOnSubmit}
-            >
-              SUBMIT
-            </button>
-          </div>
-        </form>
-      </div>
-    </>
+    <div
+      className="container"
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        paddingTop: "30px",
+        paddingBottom: "30px",
+      }}
+    >
+      <form
+        action=""
+        style={{
+          border: "2px solid black",
+          padding: "30px",
+          borderRadius: "50px",
+          backgroundColor: "yellowgreen",
+        }}
+        onSubmit={handleOnSubmit}
+      >
+        <h1>STUDENT REGISTRATION</h1>
+        <div className="mb-3">
+          <label htmlFor="exampleFormControlInput1" className="form-label">
+            Name
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="exampleFormControlInput1"
+            placeholder="Enter Name"
+            required
+            value={name}
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
+            pattern="[A-Za-z\s]+"
+            title="Alphabets only"
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="exampleFormControlInput1" className="form-label">
+            USN
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="exampleFormControlInput1"
+            placeholder="Enter USN"
+            required
+            value={usn}
+            onChange={(e) => {
+              setUsn(e.target.value);
+            }}
+            pattern="^\d[a-zA-Z]{2}\d{2}[a-zA-Z]{2}\d{3}$"
+            title="Enter in DAADDAADDD form"
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="exampleFormControlInput1" className="form-label">
+            Email
+          </label>
+          <input
+            type="email"
+            className="form-control"
+            id="exampleFormControlInput1"
+            placeholder="Enter Email"
+            required
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="exampleFormControlInput1" className="form-label">
+            Phone No.
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="exampleFormControlInput1"
+            placeholder="Enter phone no."
+            required
+            value={phone}
+            onChange={(e) => {
+              setPhone(e.target.value);
+            }}
+            pattern="(\+91)?[0-9]{10}"
+            title="Enter 10 numbers"
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="exampleFormControlInput1" className="form-label">
+            Semester
+          </label>
+          <select
+            className="form-select"
+            aria-label="Default select example"
+            required
+            value={sem}
+            onChange={(e) => {
+              setSem(e.target.value);
+            }}
+          >
+            <option></option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+          </select>
+        </div>
+        <div className="mb-3">
+          <label htmlFor="exampleFormControlInput1" className="form-label">
+            Branch
+          </label>
+          <select
+            className="form-select"
+            aria-label="Default select example"
+            required
+            value={branch}
+            onChange={(e) => {
+              setBranch(e.target.value);
+            }}
+          >
+            <option></option>
+            <option value="1">CSE-A</option>
+            <option value="2">CSE-B</option>
+            <option value="3">AIML</option>
+            <option value="4">ISE</option>
+            <option value="5">CSD</option>
+          </select>
+        </div>
+        <div className="col-auto d-grid">
+          <button type="submit" className="btn btn-outline-success mb-3">
+            SUBMIT
+          </button>
+        </div>
+      </form>
+    </div>
   );
 }
 

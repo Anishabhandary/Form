@@ -7,12 +7,8 @@ function App() {
   // document.body.style.backgroundColor = "rgb(187, 153, 90)";
   return (
     <>
-      <h1>Student Registration Form</h1>
       <div className="App">
-        <div className="container" style={{ padding: "100px" }}>
-          <Form />
-        </div>
-
+        <Form />
         {/* <Resume /> */}
       </div>
     </>
