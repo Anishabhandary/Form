@@ -123,7 +123,7 @@ function Form() {
               setSem(e.target.value);
             }}
           >
-            <option></option>
+            <option>-----------------select Semester---------------</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -147,7 +147,7 @@ function Form() {
               setBranch(e.target.value);
             }}
           >
-            <option></option>
+            <option>------------------select Branch---------------</option>
             <option value="1">CSE-A</option>
             <option value="2">CSE-B</option>
             <option value="3">AIML</option>
